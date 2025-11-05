@@ -1,4 +1,3 @@
-  
 # Gripetime (Full Stack, GitHub-Ready)
 
 This repository is ready to open in **GitHub Desktop** and deploy via **GitHub Actions** to **Firebase Hosting + Functions**.
