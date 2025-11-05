@@ -6,43 +6,22 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
-    env:
-      FIREBASE_DEBUG: true
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Preflight: show folders
-        run: |
-          pwd
-          ls -la
-          echo "--- web ---"
-          ls -la web || true
-          echo "--- functions ---"
-          ls -la functions || true
-          echo "--- firebase.json ---"
-          cat firebase.json
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
 
       - name: Build web
         working-directory: web
         run: |
           npm install
           npm run build
-          echo "--- built web/dist ---"
-          ls -la dist
-
-      - name: Install functions
-        working-directory: functions
-        run: npm install
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
