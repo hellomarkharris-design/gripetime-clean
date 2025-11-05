@@ -2,7 +2,7 @@ name: Deploy to Firebase Hosting
 
 on:
   push:
-    branches: 
+    branches:
       - main
 
 jobs:
@@ -40,4 +40,4 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           channelId: live
-          projectId: ${{ fromJSON(secrets.FIREBASE_SERVICE_ACCOUNT).project_id }}
+          projectId: gripetime-3335c
